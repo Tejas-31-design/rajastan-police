@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy text-white font-sans;
+    min-height: 100vh;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B1B2B;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #12304D;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #F28C28;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-card rounded-xl border border-white/10 shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-saffron text-navy font-semibold px-5 py-2.5 rounded-lg 
+           hover:bg-orange-400 active:scale-95 transition-all duration-150;
+  }
+
+  .btn-secondary {
+    @apply bg-card-light text-white font-medium px-4 py-2 rounded-lg 
+           hover:bg-card border border-white/20 transition-all duration-150;
+  }
+
+  .tab {
+    @apply px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-200 cursor-pointer;
+  }
+
+  .tab-active {
+    @apply bg-saffron text-navy;
+  }
+
+  .tab-inactive {
+    @apply text-white/60 hover:text-white hover:bg-white/10;
+  }
+
+  .kpi-card {
+    @apply card p-5 flex flex-col gap-1;
+  }
+
+  .risk-high {
+    @apply text-alert-red;
+  }
+  .risk-suspicious {
+    @apply text-saffron;
+  }
+  .risk-safe {
+    @apply text-teal;
+  }
+}
+
+/* Leaflet map dark override */
+.leaflet-container {
+  background: #0B1B2B !important;
+  border-radius: 0.75rem;
+}
+.leaflet-tile {
+  filter: invert(1) hue-rotate(200deg) brightness(0.7) saturate(0.5);
+}
+
+/* Force graph canvas */
+.force-graph-container canvas {
+  border-radius: 0.75rem;
+}
